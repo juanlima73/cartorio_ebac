@@ -125,53 +125,71 @@ int main () //main é função principal, sempre será a primeira
 {
 	int opcao=0; //Declarando que o espaço da variavel chamada opcao é 0. Boas praticas para não correr risco de contaminar a variavel
 	int laco=1; //laco e o nome da variavel que irá dar o loop no programa
+	char senhadigitada[10]="a";
+	int comparacao;
 	
+	setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
 	
-	for(laco=1;laco=1;) //Está dando sentido de loop no programa, irá fazer sempre o programa voltar da estaca zero após colher as informacoes digitada pelo user
+	printf("### Cartório da EBAC ###\n\n");
+	printf("Login de administrador!\n\nDigite a sua senha: ");
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin"); //strcmp tem por finalidade comparar strings se possui o mesmo "número de memoria" pois se trata de strings.	
+	system("cls"); //Limpa as informações anteriores da tela
+	
+	if(comparacao == 0)
 	{
-		
-		system("cls"); //Limpa as informações anteriores da tela
-		
-		setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
+			
 	
-		printf("### Cartório da EBAC ###\n\n"); //Inicio do Menu
-		printf("Escolha a opção desejada do menu:\n\n");
-		printf("\t1 - Registrar nomes\n");
-		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n\n"); 
-		printf("\t4 - Sair do sistema\n\n");
-		
-		printf("Opção: ");//Fim do menu	
-	
-		scanf("%d", &opcao); //scanf irá armazenar os dados do usuario. %d e uma declaracao que é variavel do tipo inteiro
-	
-		system("cls"); //limpa a tela com todas as informações que tinha antes
-		
-		switch(opcao) //opção armazenada na variavel
+		for(laco=1;laco=1;) //Está dando sentido de loop no programa, irá fazer sempre o programa voltar da estaca zero após colher as informacoes digitada pelo user
 		{
-			case 1: //caso o valor da variavél seja 1:
-			registro(); //chamada de funcoes
-			break;
-				
-			case 2: //caso o valor da variavél seja 2:
-			consulta();
-			break;
-			
-			case 3: //caso o valor da variavél seja 3:
-			deletar();
-			break;
-			
-			case 4:
-			printf("Obrigado por utilizar o sistema\n");
-			return 0;
-			break;
-				
-			default: //é uma especie de else, caso não tenha nenhum tipo de comparação verdadeira irá retornar:
-			printf("Essa opção não está disponivel!\n");
-			system("pause");
-			break;
-		} // fim da selecao
+		
+			system("cls"); //Limpa as informações anteriores da tela
+		
+			setlocale(LC_ALL, "Portuguese"); //Definindo a Linguagem
 	
-	}
-
+			printf("### Cartório da EBAC ###\n\n"); //Inicio do Menu
+			printf("Escolha a opção desejada do menu:\n\n");
+			printf("\t1 - Registrar nomes\n");
+			printf("\t2 - Consultar nomes\n");
+			printf("\t3 - Deletar nomes\n\n"); 
+			printf("\t4- Sair do sistema\n\n");
+		
+			printf("Opção: ");//Fim do menu	
+	
+			scanf("%d", &opcao); //scanf irá armazenar os dados do usuario. %d e uma declaracao que é variavel do tipo inteiro
+	
+			system("cls"); //limpa a tela com todas as informações que tinha antes
+		
+			switch(opcao) //opção armazenada na variavel
+			{
+				case 1: //caso o valor da variavél seja 1:
+				registro(); //chamada de funcoes
+				break;
+				
+				case 2: //caso o valor da variavél seja 2:
+				consulta();
+				break;
+			
+				case 3: //caso o valor da variavél seja 3:
+				deletar();
+				break;
+			
+				case 4:
+				printf("Obrigado por utilizar o sistema\n");
+				return 0;
+				break;
+				
+				default: //é uma especie de else, caso não tenha nenhum tipo de comparação verdadeira irá retornar:
+				printf("Essa opção não está disponivel!\n");
+				system("pause");
+				break;
+			} // fim da selecao
+	
+		}
+	}	
+	
+	else
+		printf("Senha incorreta!");
+	
 }
